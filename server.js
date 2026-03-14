@@ -27,12 +27,11 @@ app.use(
       "http://localhost:5173",
       "https://blogify-ochre-ten.vercel.app"
     ],
-    credentials: true,
+    credentials: true
   })
 );
 
 app.use(express.json());
-app.options("*", cors());
 
 
 // Routes

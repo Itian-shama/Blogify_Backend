@@ -20,17 +20,19 @@ const PORT = process.env.PORT || 5000;
 
 
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "blogify-ochre-ten.vercel.app"
+      "https://blogify-ochre-ten.vercel.app"
     ],
     credentials: true,
   })
 );
 
 app.use(express.json());
+app.options("*", cors());
 
 
 // Routes

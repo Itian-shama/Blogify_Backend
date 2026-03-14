@@ -24,7 +24,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://blogifypage.vercel.app"
+      "blogify-ochre-ten.vercel.app"
     ],
     credentials: true,
   })

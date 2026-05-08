@@ -1,7 +1,6 @@
 import { User } from "../models/userSchema.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
 export const userRegister = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -9,7 +8,6 @@ export const userRegister = async (req, res) => {
     if (!name || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
     }
-
     //Check if the user exists in db
     const existingUser = await User.findOne({ email });
 
@@ -18,7 +16,6 @@ export const userRegister = async (req, res) => {
         .status(400)
         .json({ message: "User with this email already exists" });
     }
-
     //Password hashing using bcrypt
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -55,7 +52,6 @@ export const userRegister = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-
 export const userLogin = async (req, res) => {
   try {
     const { email, password } = req.body;

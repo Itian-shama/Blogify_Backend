@@ -25,7 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
-      "http://localhost:5173"
+      "http://localhost:5173",
+      "https://blogify-shama.vercel.app/"
     ],
     credentials: true
   })
